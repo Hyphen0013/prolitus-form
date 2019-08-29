@@ -1,7 +1,7 @@
 <% include ../index.ejs %>
 
 <main role="main" class="container">
-    <div class="my-3 p-3 bg-white rounded shadow-sm">
+    <div class="my-3 p-3 bg-white rounded shadow-sm login-box">
         <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded shadow-sm">
             <div class="lh-100">
                 <h6 class="mb-0 text-white lh-100">Registration Form</h6>
@@ -9,72 +9,81 @@
             </div>
         </div>
 
+        <% if (message != '') { %>
+            <p class="text-center text-danger"><%= message %></p>
+        <% } %>
 
         <!-- FORM -->
-        <form class="pt-3">
+        <form class="pt-3" action=""  method="POST" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="name">Name</label>
                     <input type="name" name="name" class="form-control" id="name" placeholder="Enter name">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputEmail4">Email</label>
-                    <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Email">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="password1">Password</label>
-                    <input type="password" name="password1" class="form-control" id="password1" placeholder="Password">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="password2">Confirm Password</label>
-                    <input type="password" name="password2" class="form-control" id="password2" value=""
-                        placeholder="Confirm password">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" class="form-control" id="username" placeholder="Enter unique uername">
                 </div>
             </div>
 
+             <!-- EMAIL -->
+             <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" class="form-control" id="email" placeholder="Enter password">
+            </div>
+
+            <!-- PASSWORD -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" id="password" placeholder="Enter password">
+            </div>
+
+            <!-- HOBBIES -->
             <label class="mt-1">Hobbies : </label>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" name="hobbies" type="checkbox" value="" id="indor">
+                <input class="form-check-input" name="hobbies" type="checkbox" value="Indor gemes" id="indor">
                 <label class="form-check-label" for="indor">
                     Indor games
                 </label>
             </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" name="hobbies" type="checkbox" value="" id="outdor">
+            <!-- <div class="form-check form-check-inline">
+                <input class="form-check-input" name="hobbies" type="checkbox" value="Outdor games" id="outdor">
                 <label class="form-check-label" for="outdor">
                     Outdor games
                 </label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" name="hobbies" type="checkbox" value="" id="techloving">
+                <input class="form-check-input" name="hobbies" type="checkbox" value="Tech loving" id="techloving">
                 <label class="form-check-label" for="techloving">
                     Tech loving
                 </label>
-            </div>
+            </div> -->
 
+            <!-- GENDER -->
             <br>
             <label>Gender : </label>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="gender" id="male"
-                    value="">
+                <input class="form-check-input" type="radio" name="gender" id="male" value="Male">
                 <label class="form-check-label" for="male">Male</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="gender" id="female"
-                    value="">
+                <input class="form-check-input" type="radio" name="gender" id="female" value="Female">
                 <label class="form-check-label" for="female">Female</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="gender" id="other"
-                    value="">
+                <input class="form-check-input" type="radio" name="gender" id="other" value="Others">
                 <label class="form-check-label" for="other">Others</label>
             </div>
 
-
+            <!-- DATE PICKER -->
             <div class="form-group">
-                <label for="address1">Address</label>
+                <label for="dob">D.O.B.</label>
+                <input type="date" name="dob" class="form-control" id="datepicker">
+            </div>
+
+            <!-- ADDRESS -->
+            <div class="form-group">
+                <label for="address1">Address1 </label>
                 <input type="text" name="address1" class="form-control" id="address1" placeholder="1234 Main St">
             </div>
             <div class="form-group">
@@ -100,10 +109,14 @@
                     <input type="text" name="zip" class="form-control" id="zip">
                 </div>
             </div>
+
+            <!-- TEXTAREA -->
             <div class="form-group">
                 <label for="textareawrite">Write something</label>
                 <textarea name="textareawrite" class="form-control" id="textareawrite" rows="3"></textarea>
             </div>
+
+            <!-- IMAGE -->
             <div class="form-group">
                 <label for="avtar">Browse image</label>
                 <input type="file" name="avtar" class="form-control-file" id="avtar">
@@ -132,5 +145,11 @@
     </div>
 </main>
 
+
+<!-- <script>
+    $('#datepicker').datepicker({
+        uiLibrary: 'bootstrap4'
+    });
+</script> -->
 
 <% include ../include/script.ejs %>

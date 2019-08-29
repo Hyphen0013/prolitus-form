@@ -2,12 +2,21 @@
 <main role="main" class="container">
     <div class="my-5 p-3 bg-white rounded shadow-sm">
 
-
-
         <div class="media text-muted pt-3">
-            <small class="d-block text-right mt-3 pb-4">
-                <a href="#">If not registered</a>
-            </small>
+           
+           
+                
+           <%if(!username){%>
+                <small class="d-block text-right mt-3 pb-4">
+                        <a href="/users/register">If not registered</a>
+                </small>
+            <%}%>
+                
+                <%= username %>
+                
+                
+            
+            
         </div>
     </div>
 </main>
